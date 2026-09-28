@@ -27,3 +27,6 @@ pnpm-debug.log*
 .env.local
 .env.*.local
 !.env.example
+
+.wrangler/
+.dev.vars
