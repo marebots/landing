@@ -1,15 +1,6 @@
-/**
- * Cloudflare Pages Function: POST /api/lead
- *
- * Secrets / env (CF Pages → Settings → Environment variables):
- *   RESEND_API_KEY     — required in production (notify + auto-reply)
- *   LEAD_NOTIFY_TO     — optional, default marebots.com@gmail.com
- *   LEADS_WEBHOOK_URL  — optional Apps Script web app URL (append to Sheet)
- *
- * Do NOT put Google service-account keys in the repo.
- */
+/** Shared lead handler for MaréBots landing Worker */
 
-type LeadBody = {
+export type LeadBody = {
   nome?: string;
   empresa?: string;
   cidade?: string;
@@ -20,7 +11,7 @@ type LeadBody = {
   consent?: boolean;
 };
 
-type Env = {
+export type LeadEnv = {
   RESEND_API_KEY?: string;
   LEAD_NOTIFY_TO?: string;
   LEADS_WEBHOOK_URL?: string;
@@ -35,6 +26,9 @@ function json(data: unknown, status = 200): Response {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'no-store',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Accept',
     },
   });
 }
@@ -49,11 +43,17 @@ function clean(v: unknown, max = 2000): string {
     .slice(0, max);
 }
 
-export const onRequest: PagesFunction<Env> = async (context) => {
-  const { request, env } = context;
-
+export async function handleLead(request: Request, env: LeadEnv): Promise<Response> {
   if (request.method === 'OPTIONS') {
-    return new Response(null, { status: 204, headers: { Allow: 'POST, OPTIONS' } });
+    return new Response(null, {
+      status: 204,
+      headers: {
+        Allow: 'POST, OPTIONS',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Accept',
+      },
+    });
   }
   if (request.method !== 'POST') {
     return json({ ok: false, error: 'Use POST.' }, 405);
@@ -201,4 +201,4 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   }
 
   return json({ ok: true });
-};
+}

@@ -2,84 +2,56 @@
 
 Site de marketing da **MaréBots**: um funcionário digital que organiza e-mails, pedidos e reservas — e cobra resposta no prazo — enquanto você cuida do cliente.
 
-Stack: **Astro** (estático) + **Tailwind CSS v4** + **Cloudflare Pages Functions** (`/api/lead`).
+Stack: **Astro** (estático) + **Tailwind CSS v4** + **Cloudflare Worker + Assets** (`/api/lead`).
+
+> **2026:** Cloudflare unificou o produto. Não procure mais “Pages Functions” como produto separado — o caminho suportado é **Workers** com `assets` (HTML) + `main` (API). Ver `docs/cloudflare-workers.md`.
 
 ## Desenvolvimento local
 
-Requer Node **≥ 22.12**.
+Requer Node **≥ 22** (ideal). Na máquina de build do bot pode rodar 20 com aviso.
 
 ```bash
 npm i
-npm run dev
+npm run dev          # só o Astro (form /api/lead NÃO existe aqui)
+npm run build
+npm run cf:dev       # Astro build + Worker local (form funciona)
 ```
 
-Build de produção:
+## Deploy (Cloudflare Workers)
 
 ```bash
-npm run build
-# saída em dist/
-npm run preview
+npx wrangler login   # uma vez, no browser
+npm run cf:deploy    # build + wrangler deploy
 ```
 
-A function em `functions/api/lead.ts` só roda no Cloudflare Pages (ou `wrangler pages dev`). Em `astro preview` o POST `/api/lead` não existe — use o deploy CF ou `npx wrangler pages dev dist` com secrets locais.
-
-## Cloudflare Pages
+No dashboard: **Workers & Pages** → worker `marebots-landing` (não “só upload estático”).
 
 | Setting | Valor |
 |---|---|
-| Framework preset | Astro |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root | `/` (repo root) |
-| Node version | `22` (Compatibility / env `NODE_VERSION=22`) |
+| Config | `wrangler.jsonc` |
+| Assets | `./dist` |
+| Worker entry | `./worker/index.ts` |
+| Secrets | `RESEND_API_KEY` (prod), opcional `LEAD_NOTIFY_TO`, `LEADS_WEBHOOK_URL` |
 
-Functions: pasta `functions/` na raiz do repo (Pages detecta automaticamente). Não precisa de `@astrojs/cloudflare` — o site é estático; a API é Pages Functions.
+```bash
+npx wrangler secret put RESEND_API_KEY
+```
 
-### Domínio
+### Domínio marebots.com
 
-Custom domain: **marebots.com** (e `www` se quiser) no painel Pages → Custom domains.
-
-### Secrets / variáveis de ambiente
-
-Em **Settings → Environment variables** (Production; espelhe em Preview se quiser testar):
-
-| Nome | Obrigatório | Descrição |
-|---|---|---|
-| `RESEND_API_KEY` | sim (prod) | API key Resend; From `MaréBots <contato@marebots.com>` |
-| `LEAD_NOTIFY_TO` | não | Default `marebots.com@gmail.com` |
-| `LEADS_WEBHOOK_URL` | não | URL do Apps Script que appenda na aba **Leads** |
-
-Ver `.env.example` e `docs/leads-apps-script.md`.
-
-**Não** coloque service account JSON nem chaves no git.
+- Se o DNS do domínio estiver **na Cloudflare** (nameservers CF): Custom Domain no Worker.
+- Se o DNS **não** estiver na Cloudflare: Workers **não** aceita custom domain externo como o Pages antigo. Opções: (1) migrar zona DNS para Cloudflare, ou (2) CNAME/`workers.dev` enquanto tanto, ou (3) proxy.
 
 ### Fluxo do lead
 
-1. Formulário (`#contato`) faz `POST /api/lead` (JSON).
-2. Function valida campos + consentimento LGPD.
-3. E-mail interno via Resend + auto-reply curto em PT-BR para o lead.
-4. Se `LEADS_WEBHOOK_URL` estiver setado, POST no Apps Script → append na Sheet CRM.
+1. Formulário → `POST /api/lead`
+2. Worker valida + Resend (notify + auto-reply) se houver `RESEND_API_KEY`
+3. Opcional: `LEADS_WEBHOOK_URL` → Apps Script → Sheet CRM (`docs/leads-apps-script.md`)
 
-Sheet: `1yPmonk-Wg-iSvBfafTiiFRfZxhF8Cid3vbtXjuvZMW8` · aba `Leads`.
+Sem secret Resend, o lead ainda retorna `ok: true` (útil para testar a API), mas **não** manda e-mail.
 
-## Marca (resumo)
+## Marca
 
-- Nome visível: **MaréBots** · URLs: marebots.com · contato@marebots.com · @marebots
-- Sempre singular: **um funcionário digital** (nunca “equipe de bots” na landing)
-- Cores: mangue `#1B5E4B` · mint `#6BCB4A` / `#8FDB6C` · sand `#F4F7F5` · ink `#1a2e28`
-- Não é chatbot de WhatsApp; trabalha nos bastidores
-
-## Estrutura
-
-```
-src/pages/index.astro     # landing PT-BR
-src/components/LeadForm.astro
-functions/api/lead.ts     # Pages Function
-docs/leads-apps-script.md
-public/logo-icon.png
-public/logo.png
-```
-
-## Licença
-
-Código privado da MaréBots / uso interno do founder. Repo pode ser público (marketing site source).
+- **MaréBots** · marebots.com · contato@marebots.com · @marebots
+- Singular: **um funcionário digital**
+- Cores: `#1B5E4B` · `#6BCB4A` · `#F4F7F5` · `#1a2e28`

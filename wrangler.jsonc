@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "marebots-landing",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-09-28",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // API must hit the Worker before static assets (otherwise /api/lead 404s as HTML)
+    "run_worker_first": ["/api/*"]
+  }
+}

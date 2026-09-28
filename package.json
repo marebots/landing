@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "cf:dev": "npm run build && wrangler dev",
+    "cf:deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -20,6 +22,7 @@
     "esbuild": true
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260928.1"
+    "@cloudflare/workers-types": "^5.20260928.1",
+    "wrangler": "^4.143.0"
   }
 }
