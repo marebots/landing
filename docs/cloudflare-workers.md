@@ -5,6 +5,12 @@
 O HTML estático sozinho **não** inclui `/api/lead`.  
 A pasta antiga `functions/` era de **Pages Functions**; no modelo novo isso **não sobe sozinho**. O browser recebia 404/HTML e o form mostrava erro.
 
+## Telemetria
+
+Wrangler e Astro telemetry desligados neste ambiente.
+Nos scripts `cf:dev` / `cf:deploy` vai `WRANGLER_SEND_METRICS=false`.
+No dashboard, secrets: só `RESEND_API_KEY` é obrigatório; `LEAD_NOTIFY_TO` é var plain (default no `wrangler.jsonc`).
+
 ## O que usar agora
 
 1. Abra o dashboard Cloudflare → **Workers & Pages** (ou só **Workers**).

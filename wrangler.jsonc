@@ -5,6 +5,14 @@
   "compatibility_date": "2026-09-28",
   "workers_dev": true,
   "preview_urls": true,
+  // Custom domain is bound in the Cloudflare dashboard (marebots.com).
+  // Do not put secrets here — only non-secret defaults in "vars".
+  // Secrets (dashboard / wrangler secret put):
+  //   RESEND_API_KEY          (required for notify + auto-reply)
+  //   LEADS_WEBHOOK_URL       (optional Apps Script → Sheet)
+  "vars": {
+    "LEAD_NOTIFY_TO": "marebots.com@gmail.com"
+  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

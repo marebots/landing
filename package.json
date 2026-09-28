@@ -10,8 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "cf:dev": "npm run build && wrangler dev",
-    "cf:deploy": "npm run build && wrangler deploy"
+    "cf:dev": "WRANGLER_SEND_METRICS=false npm run build && WRANGLER_SEND_METRICS=false wrangler dev",
+    "cf:deploy": "WRANGLER_SEND_METRICS=false npm run build && WRANGLER_SEND_METRICS=false wrangler deploy"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
