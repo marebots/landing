@@ -56,4 +56,4 @@ Sem secret Resend, o lead ainda retorna `ok: true` (útil para testar a API), ma
 - Singular: **um funcionário digital**
 - Capitalização: minúsculo no meio da frase (`funcionário digital`); maiúsculo só no início (`Funcionário digital…`). Nunca “Funcionário Digital” em title case.
 - Cores (ColorHunt): `#FED24F` · `#FFF449` · `#B2D959` · `#7EC151` (+ ink `#1F2A14` / sand `#FFFCEB`)
-- Logo: bot mark (`public/logo-bot.svg`) — mais memorável que o monograma M
+- Logo: monograma M sério (`public/logo-mark.svg`) + ponto digital amarelo na paleta ColorHunt
