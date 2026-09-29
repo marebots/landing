@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MaréBots">
-  <defs>
-    <linearGradient id="plate" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7EC151"/>
-      <stop offset="1" stop-color="#4F9A2E"/>
-    </linearGradient>
-  </defs>
-  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#plate)"/>
-  <!-- M letterform -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#5A9CB5"/>
   <path d="M18 44 V22.5 L32 36.5 L46 22.5 V44"
-        fill="none" stroke="#FFFCEB" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- digital-worker accent dot (mint/lemon) -->
-  <circle cx="46.5" cy="18.5" r="3.6" fill="#FFF449"/>
+        fill="none" stroke="#FBFAF7" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46.5" cy="18.5" r="3.6" fill="#FACE68"/>
 </svg>

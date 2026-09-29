@@ -55,5 +55,5 @@ Sem secret Resend, o lead ainda retorna `ok: true` (útil para testar a API), ma
 - **MaréBots** · marebots.com · contato@marebots.com · @marebots
 - Singular: **um funcionário digital**
 - Capitalização: minúsculo no meio da frase (`funcionário digital`); maiúsculo só no início (`Funcionário digital…`). Nunca “Funcionário Digital” em title case.
-- Cores (ColorHunt): `#FED24F` · `#FFF449` · `#B2D959` · `#7EC151` (+ ink `#1F2A14` / sand `#FFFCEB`)
-- Logo: monograma M sério (`public/logo-mark.svg`) + ponto digital amarelo na paleta ColorHunt
+- Cores (ColorHunt): `#5A9CB5` · `#FACE68` · `#FAAC68` · `#FA6868` (+ ink `#1C2428` / sand `#FBFAF7`)
+- Logo: monograma M sério (`public/logo-mark.svg`) em azul maré + ponto ouro

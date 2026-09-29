@@ -14,19 +14,19 @@ const {
 } = Astro.props;
 
 const field =
-  'w-full min-h-12 rounded-xl border border-ink/12 bg-white px-3.5 py-3 text-base text-ink outline-none ring-lime/50 transition focus:border-leaf focus:ring-2 sm:text-[0.9375rem]';
+  'w-full min-h-12 rounded-xl border border-ink/10 bg-sand/60 px-3.5 py-3 text-base text-ink outline-none transition placeholder:text-ink/35 focus:border-sea focus:bg-white focus:ring-2 focus:ring-sea/20 sm:text-[0.9375rem]';
 ---
 
-<section id={id} class="scroll-mt-24 py-12 sm:py-16 md:py-24">
-  <div class="mx-auto max-w-xl px-4 sm:px-5">
-    <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-3xl">
+<section id={id} class="scroll-mt-24 py-14 sm:py-18 md:py-22">
+  <div class="mx-auto max-w-xl px-4 sm:px-6">
+    <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-[1.75rem]">
       {heading}
     </h2>
-    <p class="mt-2 text-sm text-ink/80 sm:mt-3 sm:text-base">{subheading}</p>
+    <p class="mt-2 text-sm text-muted sm:mt-3 sm:text-base">{subheading}</p>
 
     <form
       id={`${id}-form`}
-      class="mt-7 space-y-4 sm:mt-8"
+      class="mt-8 space-y-4"
       data-lead-form
       data-fonte={fonteDefault}
       novalidate
@@ -36,14 +36,7 @@ const field =
       <div class="grid gap-4">
         <label class="block">
           <span class="mb-1.5 block text-sm font-medium text-ink">Nome *</span>
-          <input
-            type="text"
-            name="nome"
-            required
-            autocomplete="name"
-            class={field}
-            placeholder="Seu nome"
-          />
+          <input type="text" name="nome" required autocomplete="name" class={field} placeholder="Seu nome" />
         </label>
         <label class="block">
           <span class="mb-1.5 block text-sm font-medium text-ink">Empresa *</span>
@@ -60,7 +53,7 @@ const field =
 
       <label class="block">
         <span class="mb-1.5 block text-sm font-medium text-ink"
-          >Cidade / UF <span class="font-normal text-ink/50">(opcional)</span></span
+          >Cidade / UF <span class="font-normal text-muted">(opcional)</span></span
         >
         <input
           type="text"
@@ -86,7 +79,7 @@ const field =
         </label>
         <label class="block">
           <span class="mb-1.5 block text-sm font-medium text-ink"
-            >WhatsApp <span class="font-normal text-ink/50">(opcional)</span></span
+            >WhatsApp <span class="font-normal text-muted">(opcional)</span></span
           >
           <input
             type="tel"
@@ -110,12 +103,12 @@ const field =
         ></textarea>
       </label>
 
-      <label class="flex items-start gap-3 text-sm leading-snug text-ink/80">
+      <label class="flex items-start gap-3 text-sm leading-snug text-muted">
         <input
           type="checkbox"
           name="consent"
           required
-          class="mt-1 size-5 shrink-0 rounded border-ink/30 text-leaf accent-leaf"
+          class="mt-1 size-5 shrink-0 rounded border-ink/25 text-sea accent-sea"
         />
         <span
           >Autorizo a MaréBots a usar meus dados para responder este contato, conforme a LGPD. Não enviamos spam.</span
@@ -127,7 +120,7 @@ const field =
       <button
         type="submit"
         data-submit
-        class="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-leaf px-6 py-3.5 text-base font-semibold text-ink shadow-sm transition hover:bg-leaf-deep hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        class="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-sea px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-sea-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sea disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         Enviar mensagem
       </button>
@@ -226,19 +219,19 @@ const field =
   ) {
     el.classList.remove(
       'hidden',
-      'bg-lime/40',
-      'text-ink',
+      'bg-sea/10',
+      'text-sea-deep',
       'bg-red-50',
       'text-red-800',
       'bg-sand',
-      'text-ink/70',
+      'text-muted',
     );
     if (kind === 'success') {
-      el.classList.add('bg-lime/40', 'text-ink');
+      el.classList.add('bg-sea/10', 'text-sea-deep');
     } else if (kind === 'error') {
       el.classList.add('bg-red-50', 'text-red-800');
     } else {
-      el.classList.add('bg-sand', 'text-ink/70');
+      el.classList.add('bg-sand', 'text-muted');
     }
     el.textContent = message;
   }

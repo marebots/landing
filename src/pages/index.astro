@@ -19,22 +19,22 @@ const useCases = [
 
 const steps = [
   {
-    n: '1',
+    n: '01',
     title: 'Conversa rápida',
     body: 'Quinze minutos: de onde vêm os pedidos hoje e o que mais trava a manhã.',
   },
   {
-    n: '2',
+    n: '02',
     title: 'Combinamos o jeito',
     body: 'Prioridades, tom de voz da sua empresa e o que precisa da sua aprovação.',
   },
   {
-    n: '3',
+    n: '03',
     title: 'Rotina nos bastidores',
     body: 'Organiza e-mails, pedidos e reservas; cobra resposta no prazo — você cuida do cliente.',
   },
   {
-    n: '4',
+    n: '04',
     title: 'Você decide',
     body: 'Olhamos os números juntos. Se fizer sentido, continua. Se não, para sem drama.',
   },
@@ -51,78 +51,65 @@ const sectors = [
 ---
 
 <Layout>
-  <!-- Header: compact on mobile, sticky -->
   <header
-    class="sticky top-0 z-40 border-b border-ink/8 bg-sand/95 backdrop-blur-md"
+    class="sticky top-0 z-40 border-b border-ink/6 bg-sand/90 backdrop-blur-md"
     style="padding-top: env(safe-area-inset-top);"
   >
-    <div class="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-3.5">
-      <a href="#" class="flex min-h-11 items-center gap-2 font-semibold tracking-tight text-ink">
-        <img
-          src="/logo-mark.svg"
-          alt="MaréBots"
-          width="40"
-          height="40"
-          class="size-9 sm:size-10"
-        />
-        <span class="text-base sm:text-lg">MaréBots</span>
+    <div class="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-3.5">
+      <a href="#" class="flex min-h-11 items-center gap-2.5 font-semibold tracking-tight text-ink">
+        <img src="/logo-mark.svg" alt="MaréBots" width="36" height="36" class="size-9" />
+        <span class="text-[0.95rem] sm:text-base">MaréBots</span>
       </a>
       <nav class="flex items-center gap-2 sm:gap-3 text-sm font-medium">
         <a
           href="#piloto"
-          class="hidden min-h-11 items-center px-2 text-ink/70 transition hover:text-leaf-deep sm:inline-flex"
+          class="hidden min-h-11 items-center px-2 text-muted transition hover:text-ink sm:inline-flex"
           >Piloto Pipa</a
         >
         <a
           href="#contato"
-          class="inline-flex min-h-11 items-center justify-center rounded-xl bg-leaf px-3.5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:bg-lime sm:px-4"
+          class="inline-flex min-h-11 items-center justify-center rounded-full bg-sea px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sea-deep"
           >Falar conosco</a
         >
       </nav>
     </div>
   </header>
 
-  <!-- Hero: light sunny gradient, ink text (mobile-first) -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-lemon via-sun to-lime/80 text-ink">
+  <!-- Hero: calm paper + sea accent -->
+  <section class="relative overflow-hidden border-b border-ink/6">
     <div
-      class="pointer-events-none absolute -right-16 -top-10 size-56 rounded-full bg-leaf/25 blur-2xl sm:size-72"
+      class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"
     >
     </div>
-    <div class="relative mx-auto max-w-5xl px-4 pb-12 pt-10 sm:px-5 sm:pb-16 sm:pt-14 md:pb-24 md:pt-20">
-      <div class="mb-5 flex items-center gap-3">
-        <img
-          src="/logo-mark.svg"
-          alt=""
-          width="56"
-          height="56"
-          class="size-12 shrink-0 drop-shadow-sm sm:size-14"
-        />
-        <p class="text-sm font-medium leading-snug tracking-wide text-ink/80 sm:text-base">
-          MaréBots · funcionário digital para o dia a dia
-        </p>
-      </div>
-      <h1 class="max-w-3xl text-[1.75rem] font-bold leading-[1.15] tracking-tight sm:text-4xl md:text-5xl">
+    <div class="pointer-events-none absolute -right-24 top-8 size-72 rounded-full bg-sea/10 blur-3xl"></div>
+    <div class="pointer-events-none absolute -left-16 bottom-0 size-56 rounded-full bg-coral/15 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-5xl px-4 pb-14 pt-12 sm:px-6 sm:pb-20 sm:pt-16 md:pb-24 md:pt-20">
+      <p class="mb-5 text-xs font-semibold uppercase tracking-[0.14em] text-sea sm:text-[0.7rem]">
+        MaréBots · funcionário digital
+      </p>
+      <h1 class="max-w-3xl text-[1.85rem] font-bold leading-[1.12] tracking-tight text-ink sm:text-4xl md:text-5xl">
         Menos pedido parado.<br class="hidden sm:block" /> Mais tempo para o que importa.
       </h1>
-      <p class="mt-4 max-w-2xl text-base font-medium leading-relaxed text-ink/90 sm:mt-5 sm:text-lg md:text-xl">
+      <p class="mt-5 max-w-xl text-base font-medium leading-relaxed text-ink/90 sm:text-lg md:text-xl">
         Um funcionário digital que organiza e-mails, pedidos e reservas — e cobra resposta no prazo —
         enquanto você cuida do cliente.
       </p>
-      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-ink/75 sm:mt-4 sm:text-base md:text-lg">
+      <p class="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
         A MaréBots ajuda pequenas e médias empresas a não perder negócio por demora no retorno.
         Separa o que é urgente, retoma contatos que esfriaram e manda um resumo claro todo dia.
         Você aprova o que for sensível.
       </p>
-      <div class="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
         <a
           href="#contato"
-          class="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-leaf px-6 py-3.5 text-base font-semibold text-ink shadow-md transition hover:bg-leaf-deep hover:text-white sm:w-auto"
+          class="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-sea px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-sea-deep sm:w-auto"
         >
           Quero organizar minha rotina
         </a>
         <a
           href="#piloto"
-          class="inline-flex min-h-11 w-full items-center justify-center text-center text-sm font-medium text-ink/85 underline decoration-ink/30 underline-offset-4 transition hover:decoration-leaf-deep sm:w-auto sm:justify-start"
+          class="inline-flex min-h-11 w-full items-center justify-center text-center text-sm font-medium text-muted underline decoration-ink/20 underline-offset-4 transition hover:text-ink hover:decoration-sea sm:w-auto sm:justify-start"
         >
           Ver o piloto em Pipa →
         </a>
@@ -130,26 +117,26 @@ const sectors = [
     </div>
   </section>
 
-  <!-- Use cases -->
-  <section class="py-12 sm:py-16 md:py-24" id="rotinas">
-    <div class="mx-auto max-w-5xl px-4 sm:px-5">
-      <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-3xl">
-        O que a gente faz no dia a dia
-      </h2>
-      <p class="mt-2 max-w-2xl text-sm text-ink/75 sm:mt-3 sm:text-base">
-        Três rotinas que se repetem em quase todo negócio — e que costumam roubar a manhã da equipe.
-      </p>
-      <div class="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+  <section class="py-14 sm:py-18 md:py-22" id="rotinas">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="max-w-2xl">
+        <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-[1.75rem]">
+          O que a gente faz no dia a dia
+        </h2>
+        <p class="mt-2 text-sm text-muted sm:mt-3 sm:text-base">
+          Três rotinas que se repetem em quase todo negócio — e que costumam roubar a manhã da equipe.
+        </p>
+      </div>
+      <div class="mt-9 grid gap-4 sm:mt-11 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         {
-          useCases.map((c) => (
-            <article class="rounded-2xl border border-ink/8 bg-white p-5 shadow-sm sm:p-6">
-              <div class="mb-3 flex size-11 items-center justify-center rounded-xl bg-lime/40 text-leaf-deep sm:mb-4 sm:size-10">
-                <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-              </div>
+          useCases.map((c, i) => (
+            <article class="group rounded-2xl border border-ink/8 bg-white p-6 transition hover:border-sea/25 hover:shadow-sm">
+              <div
+                class="mb-4 h-1 w-10 rounded-full"
+                style={i === 0 ? 'background:#5A9CB5' : i === 1 ? 'background:#FACE68' : 'background:#FAAC68'}
+              />
               <h3 class="text-base font-semibold text-ink sm:text-lg">{c.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink/75">{c.body}</p>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{c.body}</p>
             </article>
           ))
         }
@@ -157,24 +144,19 @@ const sectors = [
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="border-y border-ink/8 bg-white py-12 sm:py-16 md:py-24" id="como">
-    <div class="mx-auto max-w-5xl px-4 sm:px-5">
-      <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-3xl">Como funciona</h2>
-      <p class="mt-2 max-w-2xl text-sm text-ink/75 sm:mt-3 sm:text-base">
+  <section class="border-y border-ink/6 bg-white py-14 sm:py-18 md:py-22" id="como">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-[1.75rem]">Como funciona</h2>
+      <p class="mt-2 max-w-2xl text-sm text-muted sm:mt-3 sm:text-base">
         Começa simples: uma rotina clara, com você no controle.
       </p>
-      <ol class="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+      <ol class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {
           steps.map((s) => (
-            <li class="relative flex gap-3 sm:block">
-              <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-leaf text-sm font-bold text-ink sm:mb-3">
-                {s.n}
-              </span>
-              <div>
-                <h3 class="font-semibold text-ink">{s.title}</h3>
-                <p class="mt-1 text-sm leading-relaxed text-ink/75 sm:mt-1.5">{s.body}</p>
-              </div>
+            <li>
+              <span class="text-xs font-semibold tracking-widest text-sea">{s.n}</span>
+              <h3 class="mt-2 font-semibold text-ink">{s.title}</h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-muted">{s.body}</p>
             </li>
           ))
         }
@@ -182,18 +164,17 @@ const sectors = [
     </div>
   </section>
 
-  <!-- Sectors -->
-  <section class="py-12 sm:py-14 md:py-16" id="para-quem">
-    <div class="mx-auto max-w-5xl px-4 sm:px-5">
-      <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-3xl">Para quem é</h2>
-      <p class="mt-2 max-w-2xl text-sm text-ink/75 sm:mt-3 sm:text-base">
+  <section class="py-14 sm:py-16" id="para-quem">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <h2 class="text-xl font-bold tracking-tight text-ink sm:text-2xl md:text-[1.75rem]">Para quem é</h2>
+      <p class="mt-2 max-w-2xl text-sm text-muted sm:mt-3 sm:text-base">
         Falamos com quem decide na empresa. O hóspede ou cliente final continua falando com você —
         a MaréBots trabalha nos bastidores.
       </p>
-      <ul class="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-2.5">
+      <ul class="mt-7 flex flex-wrap gap-2">
         {
           sectors.map((s) => (
-            <li class="rounded-full border border-ink/10 bg-white px-3.5 py-2 text-sm font-medium text-ink shadow-sm sm:px-4">
+            <li class="rounded-full border border-ink/10 bg-white px-4 py-2 text-sm font-medium text-ink/85">
               {s}
             </li>
           ))
@@ -202,14 +183,13 @@ const sectors = [
     </div>
   </section>
 
-  <!-- Anti WhatsApp-robot -->
-  <section class="pb-6 sm:pb-8 md:pb-12">
-    <div class="mx-auto max-w-5xl px-4 sm:px-5">
-      <div class="rounded-2xl border border-ink/8 border-l-4 border-l-leaf bg-white p-5 shadow-sm sm:p-6 md:p-8">
-        <h2 class="text-base font-bold text-ink sm:text-lg md:text-xl">
+  <section class="pb-8 md:pb-12">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="rounded-2xl border border-ink/8 bg-white p-6 sm:p-8" style="border-left: 3px solid #FA6868;">
+        <h2 class="text-base font-bold text-ink sm:text-lg">
           Não é um robô respondendo sozinho no WhatsApp
         </h2>
-        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-ink/80 sm:text-base">
+        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
           Não conversamos com o hóspede ou cliente final no seu lugar, não mandamos mensagem em massa
           e não mexemos em pagamento. Trabalhamos no e-mail e nos canais de pedido/reserva que você
           autorizar, com acesso mínimo e combinado por escrito.
@@ -218,54 +198,54 @@ const sectors = [
     </div>
   </section>
 
-  <!-- Pilot Pipa -->
-  <section id="piloto" class="scroll-mt-24 py-10 sm:py-12 md:py-16">
-    <div class="mx-auto max-w-5xl px-4 sm:px-5">
-      <div class="rounded-2xl bg-gradient-to-br from-leaf via-lime to-sun p-6 text-ink shadow-lg sm:p-7 md:p-10">
-        <span
-          class="inline-block rounded-full bg-ink/10 px-3 py-1 text-xs font-semibold tracking-wide text-ink"
-        >
-          Piloto agora · Praia da Pipa, RN
-        </span>
-        <h2 class="mt-4 text-xl font-bold tracking-tight sm:text-2xl md:text-3xl">
-          Pousadas de médio porte (cerca de 15 a 40 quartos)
-        </h2>
-        <p class="mt-3 max-w-2xl text-sm text-ink/85 sm:text-base">
-          Poucas vagas, valor simbólico, em troca do seu feedback. Quatorze dias com você aprovando o
-          que for delicado. Faz sentido se você recebe pedidos por e-mail e pelos sites de reserva —
-          e sente que na alta alguma cotação se perde.
-        </p>
-        <ul class="mt-5 space-y-2 text-sm text-ink/80 sm:mt-6 sm:text-base">
-          <li>· Conversa de 15 minutos: de onde vêm os pedidos hoje.</li>
-          <li>· Combinamos prioridades e o jeito de falar da sua pousada.</li>
-          <li>· Quatorze dias de rotina com você no controle.</li>
-          <li>· No fim, olhamos os números juntos e você decide se continua.</li>
-        </ul>
-        <div class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
-          <a
-            href="#contato"
-            class="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-ink px-5 py-3 font-semibold text-lemon transition hover:bg-ink/90 sm:w-auto"
-            data-set-fonte="piloto"
-            id="cta-piloto"
+  <section id="piloto" class="scroll-mt-24 py-10 sm:py-14 md:py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="overflow-hidden rounded-3xl bg-sea text-white shadow-lg">
+        <div class="bg-gradient-to-br from-sea via-sea to-sea-deep p-7 sm:p-10 md:p-12">
+          <span
+            class="inline-block rounded-full bg-white/15 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-gold"
           >
-            Quero falar do piloto
-          </a>
-          <a
-            href="mailto:contato@marebots.com?subject=Piloto%20Mar%C3%A9Bots%20Pipa%20pousadas"
-            class="inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-ink/25 bg-white/40 px-5 py-3 font-medium text-ink transition hover:bg-white/70 sm:w-auto"
-          >
-            Ou escrever por e-mail
-          </a>
+            Piloto agora · Praia da Pipa, RN
+          </span>
+          <h2 class="mt-4 text-xl font-bold tracking-tight sm:text-2xl md:text-3xl">
+            Pousadas de médio porte (cerca de 15 a 40 quartos)
+          </h2>
+          <p class="mt-3 max-w-2xl text-sm text-white/90 sm:text-base">
+            Poucas vagas, valor simbólico, em troca do seu feedback. Quatorze dias com você aprovando o
+            que for delicado. Faz sentido se você recebe pedidos por e-mail e pelos sites de reserva —
+            e sente que na alta alguma cotação se perde.
+          </p>
+          <ul class="mt-6 space-y-2 text-sm text-white/85 sm:text-base">
+            <li>· Conversa de 15 minutos: de onde vêm os pedidos hoje.</li>
+            <li>· Combinamos prioridades e o jeito de falar da sua pousada.</li>
+            <li>· Quatorze dias de rotina com você no controle.</li>
+            <li>· No fim, olhamos os números juntos e você decide se continua.</li>
+          </ul>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href="#contato"
+              class="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-gold px-6 py-3 font-semibold text-ink transition hover:bg-coral sm:w-auto"
+              data-set-fonte="piloto"
+              id="cta-piloto"
+            >
+              Quero falar do piloto
+            </a>
+            <a
+              href="mailto:contato@marebots.com?subject=Piloto%20Mar%C3%A9Bots%20Pipa%20pousadas"
+              class="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-white/30 px-6 py-3 font-medium text-white/95 transition hover:bg-white/10 sm:w-auto"
+            >
+              Ou escrever por e-mail
+            </a>
+          </div>
+          <p class="mt-5 text-sm text-white/60">
+            Cliente da MaréBots = a pousada (B2B). Hóspede = continua sendo atendido por vocês.
+          </p>
         </div>
-        <p class="mt-5 text-sm text-ink/65">
-          Cliente da MaréBots = a pousada (B2B). Hóspede = continua sendo atendido por vocês.
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <div class="border-t border-ink/8 bg-white">
+  <div class="border-t border-ink/6 bg-white">
     <LeadForm
       id="contato"
       fonteDefault="landing"
@@ -274,24 +254,26 @@ const sectors = [
     />
   </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-ink/10 bg-sand py-8 sm:py-10" style="padding-bottom: max(2rem, env(safe-area-inset-bottom));">
-    <div class="mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 text-center text-sm text-ink/65 sm:px-5">
-      <div class="flex items-center gap-2 font-semibold text-ink">
+  <footer
+    class="border-t border-ink/8 bg-sand py-10"
+    style="padding-bottom: max(2.5rem, env(safe-area-inset-bottom));"
+  >
+    <div class="mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 text-center text-sm text-muted sm:px-6">
+      <div class="flex items-center gap-2.5 font-semibold text-ink">
         <img src="/logo-mark.svg" alt="" width="28" height="28" class="size-7" />
         MaréBots
       </div>
       <p class="max-w-md leading-relaxed">
         Funcionário digital para pequenas e médias empresas ·
-        <a href="mailto:contato@marebots.com" class="underline decoration-leaf/50 underline-offset-2 hover:text-leaf-deep"
+        <a href="mailto:contato@marebots.com" class="underline decoration-sea/40 underline-offset-2 hover:text-sea-deep"
           >contato@marebots.com</a
         >
         ·
-        <a href="https://instagram.com/marebots" class="underline decoration-leaf/50 underline-offset-2 hover:text-leaf-deep"
+        <a href="https://instagram.com/marebots" class="underline decoration-sea/40 underline-offset-2 hover:text-sea-deep"
           >@marebots</a
         >
       </p>
-      <p class="text-xs text-ink/50">© {new Date().getFullYear()} MaréBots · marebots.com</p>
+      <p class="text-xs text-ink/40">© {new Date().getFullYear()} MaréBots · marebots.com</p>
     </div>
   </footer>
 </Layout>
